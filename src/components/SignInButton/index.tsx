@@ -18,7 +18,7 @@ export function SignInButton() {
     </button>
   ) : (
     <button
-      onClick={() => signIn()}
+      onClick={() => signIn('github')}
       className={styles.singInButton}
       type="button"
     >
