@@ -12,13 +12,14 @@ export function SignInButton() {
       className={styles.singInButton}
       type="button"
     >
-      <FaGithub color="#04D361" />
-      <p>Caio Martins</p>
+      <img src={session.user.image} />
+     
+      <p>{session.user?.name}</p>
       <FiX color="#737380" className={styles.closeIcon} />
     </button>
   ) : (
     <button
-      onClick={() => signIn('github')}
+      onClick={() => signIn("github")}
       className={styles.singInButton}
       type="button"
     >

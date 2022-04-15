@@ -30,12 +30,21 @@
     filter: brightness(0.8);
   }
 
+  img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+
+  img:first-child {
+    margin-right: 1rem;
+  }
+
   @media (max-width: 720px) {
     text-align: center;
     font-size: 0.8rem;
     p {
       display: none;
-     
     }
   }
 }
