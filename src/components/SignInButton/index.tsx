@@ -5,7 +5,6 @@ import { FiX } from "react-icons/fi";
 
 export function SignInButton() {
   const { data: session } = useSession();
-  console.log(session);
   return session ? (
     <button
       onClick={() => signOut()}
@@ -13,7 +12,7 @@ export function SignInButton() {
       type="button"
     >
       <img src={session.user.image} />
-     
+
       <p>{session.user?.name}</p>
       <FiX color="#737380" className={styles.closeIcon} />
     </button>
