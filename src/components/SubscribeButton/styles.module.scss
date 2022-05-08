@@ -14,6 +14,10 @@
 
     transition: filter 0.2s;
 
+    &:disabled{
+        filter: brightness(0.8);
+        cursor: default;
+    }
     &:hover{
         filter: brightness(0.8)
     }
