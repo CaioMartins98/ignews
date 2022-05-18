@@ -7,7 +7,6 @@ export default function Posts() {
     { post: "post 2" },
     { post: "post 3" },
     { post: "post 4" },
-    { post: "post 5" },
   ];
   return (
     <div>
