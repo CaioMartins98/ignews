@@ -37,7 +37,7 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
       disabled={loading ? true : false}
     >
       {loading ? (
-        <ReactLoading type="bubbles" color="#121214" />
+        <ReactLoading type="bars" color="#121214" width={40} height={40}/>
       ) : (
         "Subscribe Now"
       )}

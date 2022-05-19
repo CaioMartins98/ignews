@@ -1,29 +1,66 @@
 import styles from "./styles.module.scss";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { FaGithub } from "react-icons/fa";
-import { FiX } from "react-icons/fi";
+import { FiLogOut } from "react-icons/fi";
+import Tooltip from "@mui/material/Tooltip";
+import React, { useState } from "react";
+import ReactLoading from "react-loading";
+import { height } from "@mui/system";
 
 export function SignInButton() {
   const { data: session } = useSession();
+
+  const [loading, setLoading] = useState(false);
+
+  const handleLogin = () => {
+    setLoading(true);
+
+    try {
+      signIn("github");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const handleLogout = () => {
+    setLoading(true);
+    try {
+      signOut();
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return session ? (
     <button
-      onClick={() => signOut()}
-      className={styles.singInButton}
+      onClick={handleLogout}
+      className={styles.singOutButton}
       type="button"
     >
-      <img src={session.user.image} />
+      {loading ? (
+        <div>
+          <ReactLoading type="bars" color="#FFF" height={50} width={50} />
+        </div>
+      ) : (
+        <>
+          <img src={session.user.image} />
 
-      <p>{session.user?.name}</p>
-      <FiX color="#737380" className={styles.closeIcon} />
+          <p>{session.user?.name}</p>
+
+          <FiLogOut color="#737380" className={styles.closeIcon} />
+        </>
+      )}
     </button>
   ) : (
-    <button
-      onClick={() => signIn("github")}
-      className={styles.singInButton}
-      type="button"
-    >
-      <FaGithub color="#EBA417" />
-      <p>Sign in with Github</p>
+    <button onClick={handleLogin} className={styles.singInButton} type="button">
+      {loading ? (
+        <>
+          <ReactLoading type="bars" color="#FFF" height={50} width={50} />
+        </>
+      ) : (
+        <>
+          <FaGithub color="#EBA417" />
+          <p>Sign in with Github</p>
+        </>
+      )}
     </button>
   );
 }
