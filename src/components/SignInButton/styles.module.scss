@@ -12,6 +12,13 @@
   color: var(--white);
   font-weight: bold;
 
+  div {
+    width: 100px;
+    margin-left: 5% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   svg {
     width: 20px;
     height: 20px;
@@ -28,6 +35,64 @@
 
   &:hover {
     filter: brightness(0.8);
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+
+  img:first-child {
+    margin-right: 1rem;
+  }
+
+  @media (max-width: 720px) {
+    text-align: center;
+    font-size: 0.8rem;
+    p {
+      display: none;
+    }
+  }
+}
+.singOutButton {
+  height: 3rem;
+  border-radius: 3rem;
+  background: var(--gray-850);
+  border: 0;
+  padding: 0 1.5rem;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--white);
+  font-weight: bold;
+
+  div {
+    width: 100px;
+    margin-left: 5% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  svg:first-child {
+    margin-right: 1rem;
+  }
+
+  svg.closeIcon {
+    margin-left: 1rem;
+  }
+  transition: filter 0.2s;
+
+  svg:hover {
+    cursor: pointer;
+    filter: brightness(0.6);
   }
 
   img {
